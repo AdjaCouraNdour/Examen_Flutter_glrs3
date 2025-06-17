@@ -142,7 +142,7 @@ class _ClientListState extends State<ClientList> {
             Provider.of<ApiProvider>(context, listen: false).fetchClients();
           }
         },
-        label: const Text("Ajouter"),
+        label: const Text("Ajouter Client"),
         icon: const Icon(Icons.add),
         backgroundColor: Colors.red,
       ),
