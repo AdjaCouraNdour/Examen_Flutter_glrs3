@@ -23,7 +23,7 @@ class _PaiementsDettesState extends State<PaiementsDettes> {
         Provider.of<ApiProvider>(
           context,
           listen: false,
-        ).fetchPaiementsByDette(detteId);
+        ).fetchPaiementsByDetteId(detteId);
       } else {
         debugPrint("Erreur : l'id de la dette est null");
       }

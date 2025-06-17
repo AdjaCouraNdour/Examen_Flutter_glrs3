@@ -25,7 +25,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Gestion Clients',
-      theme: ThemeData(primarySwatch: Colors.deepOrange, fontFamily: 'Poppins'),
+      theme: ThemeData(primarySwatch: Colors.red, fontFamily: 'Poppins'),
       home: const MainScreen(),
     );
   }

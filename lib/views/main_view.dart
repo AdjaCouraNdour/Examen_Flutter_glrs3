@@ -26,7 +26,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_currentIndex == 0 ? 'Accueil' : 'Profil'),
-        backgroundColor: const Color(0xFFEC6C1B),
+        backgroundColor: Colors.red,
       ),
       body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavBar(
