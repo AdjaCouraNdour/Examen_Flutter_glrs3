@@ -21,22 +21,21 @@ class Dette {
 
   factory Dette.fromJson(Map<String, dynamic> json) {
     return Dette(
-      id: int.tryParse(json['id'].toString().split('.')[0]) ?? 0,
+      id: json['id'] != null ? int.tryParse(json['id'].toString()) : null,
       montant: (json['montant'] as num).toDouble(),
       date: DateTime.parse(json['date']),
       clientId: json['clientId'],
-      paiements:
-          json['paiements'] != null
-              ? (json['paiements'] as List)
-                  .map((p) => Paiement.fromJson(p))
-                  .toList()
-              : [],
+      paiements: json['paiements'] != null
+          ? (json['paiements'] as List)
+              .map((p) => Paiement.fromJson(p))
+              .toList()
+          : [],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
+      if (id != null) 'id': id,
       'montant': montant,
       'date': date.toIso8601String().split('T').first,
       'clientId': clientId,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gestion/models/client.dart';
 import 'package:flutter_gestion/models/dette.dart';
 import 'package:flutter_gestion/providers/api_providers.dart';
 import 'package:provider/provider.dart';
