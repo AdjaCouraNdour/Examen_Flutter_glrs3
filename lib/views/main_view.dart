@@ -13,10 +13,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
-  final List<Widget> _screens = [
-    const ClientList(),
-    const ProfilPage(),
-  ];
+  final List<Widget> _screens = [const ClientList(), const ProfilPage()];
 
   void _onTabTapped(int index) {
     setState(() {

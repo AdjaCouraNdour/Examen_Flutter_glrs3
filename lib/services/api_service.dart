@@ -68,14 +68,19 @@ class ApiService {
   }
 
   Future<List<Paiement>> getPaiementsByDetteId(int detteId) async {
-    final data = await fetchData('paiements?detteId=$detteId');
-    return data.map<Paiement>((json) => Paiement.fromJson(json)).toList();
+  final response = await http.get(Uri.parse('$baseUrl/dettes/$detteId/paiements'));
+
+  if (response.statusCode == 200) {
+    final List jsonData = json.decode(response.body);
+    return jsonData.map((e) => Paiement.fromJson(e)).toList();
+  } else {
+    throw Exception('Erreur lors du chargement des paiements');
   }
+}
+
 
   Future<Paiement> createPaiement(Paiement paiement) async {
     final response = await postData('paiements', paiement.toJson());
     return Paiement.fromJson(response);
   }
-
-  
 }
