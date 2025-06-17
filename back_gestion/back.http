@@ -1,1 +1,8 @@
-
+###
+curl -X POST http://192.168.1.5:3000/paiements \
+  -H "Content-Type: application/json" \
+  -d '{
+    "montant": 2500,
+    "date": "2025-06-17",
+    "detteId": 16
+  }'

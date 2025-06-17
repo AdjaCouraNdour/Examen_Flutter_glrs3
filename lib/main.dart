@@ -10,7 +10,6 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ApiProvider()..fetchClients()),
-        // Ajoute d'autres providers ici si besoin
       ],
       child: const MainApp(),
     ),
@@ -55,7 +54,7 @@ class _MainScreenState extends State<MainScreen> {
       backgroundColor: const Color(0xFFF7F3F3),
       appBar: AppBar(
         title: Text(_currentIndex == 0 ? 'Accueil' : 'Profil'),
-        backgroundColor: const Color(0xFFEC6C1B),
+        backgroundColor: Colors.red,
         foregroundColor: Colors.white,
         elevation: 0,
       ),
@@ -67,31 +66,3 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
-
-// void main() {
-//   runApp(MainApp());
-// }
-
-// class MainApp extends StatelessWidget {
-//   const MainApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final compteService = CompteService(baseUrl: 'http://192.168.1.123:3000');
-
-//     return MaterialApp(
-//       title: 'Flutter Bank',
-//       debugShowCheckedModeBanner: false,
-//       theme: ThemeData(primarySwatch: Colors.brown),
-//       initialRoute: "/",
-//       routes: {
-//         "/":
-//             (context) =>
-//                 layoutPage(contentPage: CompteListPage(service: compteService)),
-//         "/form":
-//             (context) =>
-//                 layoutPage(contentPage: FormComptePage(service: compteService)),
-//       },
-//     );
-//   }
-// }
