@@ -19,7 +19,7 @@ class _AddClientDialogState extends State<AddClient> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('➕ Ajouter un client'),
+      title: const Text('Ajouter un client'),
       content: Form(
         key: _formKey,
         child: Column(

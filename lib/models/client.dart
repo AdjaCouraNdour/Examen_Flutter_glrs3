@@ -2,18 +2,18 @@ class Client {
   final int id;
   final String nomComplet;
   final String telephone;
-  final String adresse; 
+  final String adresse;
 
   Client({
     required this.id,
     required this.nomComplet,
     required this.telephone,
-    required this.adresse, 
+    required this.adresse, // ajouté ici
   });
 
   factory Client.fromJson(Map<String, dynamic> json) {
     return Client(
-      id: json['id'] is int ? json['id'] : int.parse(json['id'].toString()),
+      id: int.tryParse(json['id'].toString().split('.')[0]) ?? 0,
       nomComplet: json['nomComplet'],
       telephone: json['telephone'],
       adresse: json['adresse'],
