@@ -23,6 +23,22 @@ class ApiProvider with ChangeNotifier {
   String? get errorMessage => _errorMessage;
   Client? get selectedClient => _selectedClient;
 
+  Future<void> createClient(Map<String, dynamic> clientData) async {
+    _isLoading = true;
+    notifyListeners();
+
+    try {
+      final newClient = await apiService.createClient(clientData);
+      _clients.add(newClient);
+      _errorMessage = null;
+    } catch (e) {
+      _errorMessage = e.toString();
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
+  }
+
   Future<void> fetchClients() async {
     _isLoading = true;
     notifyListeners();

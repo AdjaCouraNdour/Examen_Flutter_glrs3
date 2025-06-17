@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gestion/providers/api_providers.dart';
+import 'package:flutter_gestion/views/add_client.dart';
 import 'package:flutter_gestion/views/dettes_client.dart';
 import 'package:provider/provider.dart';
 
-// Ta page liste clients
 class ClientList extends StatefulWidget {
   const ClientList({super.key});
 
@@ -130,6 +130,23 @@ class _ClientListState extends State<ClientList> {
           );
         },
       ),
+
+      // ✅ Bouton flottant en bas à droite
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () async {
+          final result = await showDialog(
+            context: context,
+            builder: (_) => const AddClient(),
+          );
+          if (result == true) {
+            Provider.of<ApiProvider>(context, listen: false).fetchClients();
+          }
+        },
+        label: const Text("Ajouter"),
+        icon: const Icon(Icons.add),
+        backgroundColor: Colors.red,
+      ),
     );
   }
 }
+

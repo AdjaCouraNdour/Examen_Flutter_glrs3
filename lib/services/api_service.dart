@@ -51,6 +51,11 @@ class ApiService {
     }
   }
 
+  Future<Client> createClient(Map<String, dynamic> clientData) async {
+    final response = await postData('clients', clientData);
+    return Client.fromJson(response);
+  }
+
   Future<List<Client>> getClients() async {
     final data = await fetchData('clients');
     return data.map<Client>((json) => Client.fromJson(json)).toList();
@@ -79,7 +84,6 @@ class ApiService {
       throw Exception('Erreur lors du chargement des paiements');
     }
   }
-
 
   Future<Paiement> createPaiement(Paiement paiement) async {
     final response = await postData('paiements', paiement.toJson());
