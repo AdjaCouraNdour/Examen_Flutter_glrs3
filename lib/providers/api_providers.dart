@@ -126,23 +126,6 @@ class ApiProvider with ChangeNotifier {
     }
   }
 
-  // Future<void> fetchPaiementsByDetteId(int detteId) async {
-  //   _isLoading = true;
-  //   notifyListeners();
-
-  //   try {
-  //     _paiements = await apiService.getPaiementsByDetteId(detteId);
-  //     _errorMessage = null;
-  //   } catch (e) {
-  //     _errorMessage = e.toString();
-  //     _paiements = [];
-  //   } finally {
-  //     _isLoading = false;
-  //     notifyListeners();
-  //   }
-  // }
-
-
   Future<void> addPaiement(Paiement paiement) async {
     _isLoading = true;
     notifyListeners();

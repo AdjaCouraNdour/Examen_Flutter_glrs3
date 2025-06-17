@@ -69,7 +69,7 @@ class ApiService {
 
   Future<List<Paiement>> getPaiementsByDetteId(int detteId) async {
     final response = await http.get(
-      Uri.parse('$baseUrl/dettes/$detteId/paiements'),
+      Uri.parse('$baseUrl/paiements?detteId=$detteId'),
     );
 
     if (response.statusCode == 200) {
@@ -79,6 +79,7 @@ class ApiService {
       throw Exception('Erreur lors du chargement des paiements');
     }
   }
+
 
   Future<Paiement> createPaiement(Paiement paiement) async {
     final response = await postData('paiements', paiement.toJson());
